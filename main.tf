@@ -6,6 +6,19 @@ terraform {
  }
 }
 
+# Configure the AWS Provider
+provider "aws" {
+  region = "us-east-2"
+
+  default_tags {
+    tags = {
+      Environment = "Developement"
+      Terraform   = "True"
+      POC         = "RNutzman"
+    }
+  }
+}
+
 resource "aws_iam_role" "eks-iam-role" {
  name = "devopsthehardway-eks-iam-role"
 
